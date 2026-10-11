@@ -1,0 +1,18 @@
+1. Simple Factory
+
+What is it?
+A Simple Factory is a class or method that creates objects based on an input parameter.
+Instead of creating objects directly, the client asks the factory to create them.
+
+Why do we need it?
+Imagine you have multiple payment types. Without a factory, you might write new CardPayment() and new PayPalPayment() in many places. If the creation logic changes, you may need to update all those places.
+A Simple Factory centralizes this logic.
+
+The factory decides which implementation to create.
+Advantages: Easy to understand, centralizes creation logic, and reduces direct dependencies in the client.
+Disadvantage: Every time we add a new payment type, we usually need to modify the factory. This can conflict with the Open/Closed Principle.
+
+GOTO: PaymentFactory.cs => Main.cs / PaymentFactory.java => Main.java
+
+2. Factory Method (GoF Pattern)
+
