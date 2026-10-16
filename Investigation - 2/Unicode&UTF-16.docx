@@ -1,0 +1,36 @@
+Bölmə 1 — Araşdırma (Investigation)
+1. UTF-16 və char problemi
+Java-da char 16 bitdir, yəni bir UTF-16 code unit saxlayır. Unicode isə 16 bitə sığmayan code point-ləri də dəstəkləyir.
+
+
+Məsələn:
+String text = "𝕆";
+
+System.out.println(text.length()); // 2
+
+𝕆 bir Unicode code point olsa da, UTF-16-da iki char tələb edir.
+
+
+2. Surrogate Pair nədir?
+Surrogate Pair — UTF-16-da bir Unicode code point-i göstərmək üçün istifadə edilən iki 16 bitlik code unit-dir.
+- High surrogate: \uD800–\uDBFF
+- Low surrogate: \uDC00–\uDFFF
+
+Məsələn:
+String text = "𝕆";
+
+char high = text.charAt(0);
+char low = text.charAt(1);
+
+System.out.println(Character.isHighSurrogate(high)); // true
+System.out.println(Character.isLowSurrogate(low));   // true
+
+
+3. length() və codePointCount() fərqi
+Metod	Nəyi sayır?
+length()	UTF-16 code unit-ləri
+codePointCount()	Unicode code point-ləri
+String text = "𝕆 is set";
+
+System.out.println(text.length()); // 9
+System.out.println(text.codePointCount(0, text.length())); // 8

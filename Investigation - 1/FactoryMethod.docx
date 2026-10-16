@@ -16,3 +16,9 @@ GOTO: PaymentFactory.cs => Main.cs / PaymentFactory.java => Main.java
 
 2. Factory Method (GoF Pattern)
 
+Factory Method is a creational design pattern that defines a method for creating objects but allows subclasses to decide which concrete object to create.
+
+The main difference from Simple Factory is that Factory Method uses inheritance and polymorphism to change object creation behavior.
+
+Advantages: Supports extension through subclasses, separates common workflow from object creation, and supports polymorphism.
+Disadvantage: It can introduce many subclasses. It is not always the best choice when you only need to select an implementation by a string or enum.
